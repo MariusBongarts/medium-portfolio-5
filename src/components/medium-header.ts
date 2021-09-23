@@ -1,45 +1,40 @@
 import "./medium-avatar";
+import { html, css, LitElement } from "lit";
+import { sharedStyles } from "../shared/style";
+import { customElement, property } from "lit/decorators.js";
 
-const css = `
-<style>
-.header {
-  display: flex;
-  align-items: center;
-  margin: 10px;
-}
-h1 {
-  font-weight: 300;
-}
+const componentStyle = css`
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+  }
+  h1 {
+    font-weight: 300;
+  }
 
-medium-avatar {
-  margin-left: 15px;
-}
-</style>
+  medium-avatar {
+    margin-left: 15px;
+  }
 `;
 
-class MediumHeader extends HTMLElement {
-  get headerTitle() {
-    return this.getAttribute("title");
-  }
-  get image() {
-    return this.getAttribute("image");
-  }
+@customElement("medium-header")
+class MediumHeader extends LitElement {
+  static styles = [sharedStyles, componentStyle];
 
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-    this.render();
-  }
+  @property()
+  title!: string;
+
+  @property()
+  image!: string;
 
   render() {
-    this.shadowRoot!.innerHTML = `
-    ${css}
-    <div class="header">
-      <h1>${this.headerTitle}</h1>
-      <medium-avatar image=${this.image}></medium-avatar>
-    </div>
+    return html`
+      <div class="header">
+        <h1>${this.title}</h1>
+        <medium-avatar image=${this.image}></medium-avatar>
+      </div>
     `;
   }
 }
-
-customElements.define("medium-header", MediumHeader);
