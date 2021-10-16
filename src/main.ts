@@ -27,8 +27,6 @@ const globalStyles = `
   </style>
 `;
 
-document.body.innerHTML += globalStyles;
-
 const DEFAULT_MAX_ARTICLES = 10;
 @customElement("medium-portfolio")
 class MediumPortfolio extends LitElement {
@@ -47,6 +45,11 @@ class MediumPortfolio extends LitElement {
     const maxArticles =
       this.getAttribute("maxArticles") ?? DEFAULT_MAX_ARTICLES;
     return !isNaN(+maxArticles) ? +maxArticles : DEFAULT_MAX_ARTICLES;
+  }
+
+  constructor() {
+    super();
+    this.innerHTML += globalStyles;
   }
 
   async firstUpdated() {

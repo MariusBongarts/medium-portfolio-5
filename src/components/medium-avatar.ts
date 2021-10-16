@@ -21,3 +21,9 @@ class MediumAvatar extends LitElement {
     return html` <img class="avatar" src="${this.image}" /> `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "medium-avatar": MediumAvatar;
+  }
+}
