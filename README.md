@@ -8,7 +8,7 @@
 
 [Showcase Your Medium Articles with Web Components: Part 4 — Typescript]().
 
-[Showcase Your Medium Articles with Web Components: Part 5 — Lit Library]().
+[Showcase Your Medium Articles with Web Components: Part 5 — Lit Library](https://medium.com/@mariusbongarts/build-your-own-blog-portfolio-with-web-components-lit-library-2701dffc735f).
 
 # Demo
 
